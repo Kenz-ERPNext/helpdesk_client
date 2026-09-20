@@ -1,0 +1,14 @@
+# testctl configuration for helpdesk_client.
+#
+# avintek.local has the app installed with allow_tests enabled.
+#
+# NOTE: tests must run with --skip-before-tests. Hooks fire in app-install
+# order, so erpnext.setup.utils.before_tests runs first and dies on
+# ksa_compliance's mandatory ZATCA field (Mode of Payment
+# custom_zatca_payment_means_code) before our own before_tests shim can
+# relax it. None of these tests need _Test Company.
+frappe:
+  benchPath: /Users/sammishthundiyil/frappe-bench-15-qcs
+  site: avintek.local
+  apps:
+    - helpdesk_client

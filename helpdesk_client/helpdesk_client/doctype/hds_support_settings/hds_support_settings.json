@@ -1,0 +1,222 @@
+{
+ "actions": [],
+ "creation": "2026-03-28 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "allow_write_operations",
+  "section_hub",
+  "qcs_hub_url",
+  "client_id",
+  "column_break_hub",
+  "contract_active",
+  "section_token",
+  "last_token_rotation",
+  "rotation_status",
+  "rotation_error",
+  "section_access_control",
+  "blocked_doctypes",
+  "column_break_acl",
+  "allowed_doctypes",
+  "section_limits",
+  "max_list_limit",
+  "max_error_log_limit",
+  "column_break_limits",
+  "max_report_rows",
+  "support_portal_section",
+  "enable_ticket_raising",
+  "column_break_nuxg",
+  "save_recording",
+  "max_recording_size",
+  "ticket_details",
+  "section_break_tazx",
+  "enable_user_impersonation"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_write_operations",
+   "fieldtype": "Check",
+   "label": "Allow Write Operations"
+  },
+  {
+   "fieldname": "section_hub",
+   "fieldtype": "Section Break",
+   "label": "Helpdesk Support Hub"
+  },
+  {
+   "fieldname": "qcs_hub_url",
+   "fieldtype": "Data",
+   "label": "Hub URL",
+   "options": "URL"
+  },
+  {
+   "fieldname": "client_id",
+   "fieldtype": "Data",
+   "label": "Client ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hub",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "contract_active",
+   "fieldtype": "Check",
+   "label": "Contract Active",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_token",
+   "fieldtype": "Section Break",
+   "label": "Token Management"
+  },
+  {
+   "fieldname": "last_token_rotation",
+   "fieldtype": "Datetime",
+   "label": "Last Token Rotation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rotation_status",
+   "fieldtype": "Select",
+   "label": "Rotation Status",
+   "options": "\nPending\nSuccess\nFailed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rotation_error",
+   "fieldtype": "Small Text",
+   "label": "Rotation Error",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_access_control",
+   "fieldtype": "Section Break",
+   "label": "Access Control"
+  },
+  {
+   "fieldname": "blocked_doctypes",
+   "fieldtype": "Table",
+   "label": "Blocked DocTypes",
+   "options": "HDS Blocked DocType"
+  },
+  {
+   "fieldname": "column_break_acl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "If populated, only these DocTypes are accessible (whitelist mode). Leave empty to allow all except blocked.",
+   "fieldname": "allowed_doctypes",
+   "fieldtype": "Table",
+   "label": "Allowed DocTypes",
+   "options": "HDS Allowed DocType"
+  },
+  {
+   "fieldname": "section_limits",
+   "fieldtype": "Section Break",
+   "label": "Limits"
+  },
+  {
+   "default": "100",
+   "description": "Cap for get_list tool results. Set to 0 to disable the customer-side cap (only the 5000-row safety ceiling will apply).",
+   "fieldname": "max_list_limit",
+   "fieldtype": "Int",
+   "label": "Max List Limit"
+  },
+  {
+   "default": "50",
+   "description": "Cap for get_error_log tool results. Set to 0 to disable the customer-side cap (safety ceiling: 500).",
+   "fieldname": "max_error_log_limit",
+   "fieldtype": "Int",
+   "label": "Max Error Log Limit"
+  },
+  {
+   "fieldname": "column_break_limits",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "500",
+   "description": "Cap for execute_report tool results. Set to 0 to disable the customer-side cap (safety ceiling: 10000).",
+   "fieldname": "max_report_rows",
+   "fieldtype": "Int",
+   "label": "Max Report Rows"
+  },
+  {
+   "fieldname": "support_portal_section",
+   "fieldtype": "Section Break",
+   "label": "Support Portal"
+  },
+  {
+   "fieldname": "column_break_nuxg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_ticket_raising",
+   "fieldtype": "Check",
+   "label": "Enable Ticket Raising"
+  },
+  {
+   "fieldname": "ticket_details",
+   "fieldtype": "Table",
+   "label": "Ticket Details",
+   "options": "Support Ticket Details",
+   "depends_on": "eval:doc.enable_ticket_raising"
+  },
+  {
+   "fieldname": "save_recording",
+   "fieldtype": "Select",
+   "label": "Save Recording",
+   "options": "Public\nPrivate",
+   "depends_on": "eval:doc.enable_ticket_raising"
+  },
+  {
+   "depends_on": "enable_ticket_raising",
+   "fieldname": "section_break_tazx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "max_recording_size",
+   "fieldtype": "Int",
+   "label": "Max Recording Size(MB)",
+   "depends_on": "eval:doc.enable_ticket_raising"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_user_impersonation",
+   "fieldtype": "Check",
+   "label": "Enable User Impersonation"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-03-29 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Helpdesk Client",
+ "name": "HDS Support Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
